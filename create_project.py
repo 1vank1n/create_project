@@ -90,13 +90,13 @@ application = django.core.handlers.wsgi.WSGIHandler()
 
 instructions = """
     use inside project folder!
-    syntax: create_project domain.ru folder
+    syntax: create_project domain.ru
 """
 
 if __name__ == '__main__':
     if len(sys.argv) >= 3:
         domain = sys.argv[1]
-        folder = sys.argv[2]
+        folder = os.getcwd().split('/')[-1]
 
         virtualenv()
         nginx(domain, folder)
